@@ -46,4 +46,4 @@ You will be asked to authenticate.
 
 == To add users
 
-Start your browser and point it to http://platform IP>:8080/admin
+Start your browser and point it to http://[platform IP]:8080/admin
