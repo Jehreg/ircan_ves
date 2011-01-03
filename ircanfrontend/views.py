@@ -15,8 +15,7 @@ vservers = [ { 'id' : 1, 'name' : 'vserver1', 'IP' : '10.1.30.21' },
 def index(request):
     ves = []
     for vserver in vservers:
-       raw_ves = commands.getoutput('ssh root@%s vzlist -a' % vserver['IP']).split('\n')
-       del raw_ves[0]
+       raw_ves = commands.getoutput('ssh root@%s vzlist -a -H' % vserver['IP']).split('\n')
        for raw_ve in raw_ves:
           items = raw_ve.split()
           ve = { 'veid' : int(items[0]), 'description' : items[4], 'status': items[2], 'processes': items[1], 'hostid' : vserver['id'], 'hostname' : vserver['name'] }
