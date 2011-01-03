@@ -17,26 +17,26 @@ I will change this method when we get closer to Prod-level.
 
 == To Install
 
-git clone git://github.com/Jehreg/ircan_ves.git
-cd ircan_ves
-MYDIR=`pwd`
-apt-get install python-django
-apt-get install sqlite3
-cd $MYDIR
-cd 
-wget http://mochi.github.com/mochikit/dist/MochiKit-1.4.2.zip
-unzip MochiKit*.zip
-cd ~/MochiKit*/lib/MochiKit/
-cp * $MYDIR/media/javascript/MochiKit/
-cd $MYDIR
-python manage.py syncdb
-python manage.py createsuperuser --username=root --email=joe@example.com
-<set a password>
+1. git clone git://github.com/Jehreg/ircan_ves.git
+2. cd ircan_ves
+3. MYDIR=`pwd`
+4. apt-get install python-django
+5. apt-get install sqlite3
+6. cd $MYDIR
+7. cd 
+8. wget http://mochi.github.com/mochikit/dist/MochiKit-1.4.2.zip
+9. unzip MochiKit*.zip
+10. cd ~/MochiKit*/lib/MochiKit/
+11. cp * $MYDIR/media/javascript/MochiKit/
+12. cd $MYDIR
+13. python manage.py syncdb
+14. python manage.py createsuperuser --username=root --email=joe@example.com
+15. <set a password>
 
 == To start the web app
 
-cd $MYDIR
-python manage.py runserver <platform IP>:8080
+1. cd $MYDIR
+2. python manage.py runserver <platform IP>:8080
 
 == To connect to the web app
 
