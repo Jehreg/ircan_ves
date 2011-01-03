@@ -1,0 +1,49 @@
+= IRCan Virtual Machine Administration Web App
+
+Author:: Patrick Naubert
+Contributors:: Simon Deziel
+
+== Requirements
+
+Python-Django version 1.1.1+
+Sqlite3
+MochiKit 1.4.2+
+
+== Limitations
+
+This webapp MUST communicate with the IRCan servers with valid SSH keys. Since I do not want to store these keys here, and also this code is under development, I elected to login to the webapp platform with my valid admin credentials. I then manually start the webapp.  This permits the webapp to talk to the IRCan infra as me.  This means the webapp stops when I close my terminal window.
+
+I will change this method when we get closer to Prod-level.
+
+== To Install
+
+git clone git://github.com/Jehreg/ircan_ves.git
+cd ircan_ves
+MYDIR=`pwd`
+apt-get install python-django
+apt-get install sqlite3
+cd $MYDIR
+cd 
+wget http://mochi.github.com/mochikit/dist/MochiKit-1.4.2.zip
+unzip MochiKit*.zip
+cd ~/MochiKit*/lib/MochiKit/
+cp * $MYDIR/media/javascript/MochiKit/
+cd $MYDIR
+python manage.py syncdb
+python manage.py createsuperuser --username=root --email=joe@example.com
+<set a password>
+
+== To start the web app
+
+cd $MYDIR
+python manage.py runserver <platform IP>:8080
+
+== To connect to the web app
+
+Start your browser and point it to http://<platform IP>:8080/ircan
+
+You will be asked to authenticate.
+
+== To add users
+
+Start your browser and point it to http://platform IP>:8080/admin
