@@ -36,11 +36,11 @@ I will change this method when we get closer to Prod-level.
 == To start the web app
 
 1. cd $MYDIR
-2. python manage.py runserver <platform IP>:8080
+2. python manage.py runserver [platform IP]:8080
 
 == To connect to the web app
 
-Start your browser and point it to http://<platform IP>:8080/ircan
+Start your browser and point it to http://[platform IP]:8080/ircan
 
 You will be asked to authenticate.
 
