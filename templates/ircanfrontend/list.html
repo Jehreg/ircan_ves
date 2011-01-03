@@ -1,0 +1,43 @@
+<html>
+<head>
+<link href="/amedia/css/base.css" rel="stylesheet" type="text/css" />
+<link href="/amedia/css/dashboard.css" rel="stylesheet" type="text/css" />
+<link href="/media/css/user.css" rel="stylesheet" type="text/css" />
+<script src="/media/javascript/MochiKit/MochiKit.js" type="text/javascript"></script>
+<script src="/media/javascript/MochiKit/Style.js" type="text/javascript"></script>
+<title>IRCan Virtual Servers Administration</title>
+</head>
+<body class="dashboard">
+<div id="loading">
+    <p><img src="/media/images/ajax-loader.gif" /> Please Wait</p>
+</div>
+
+<div id="container">
+  <div id="header">
+    <div id="branding">
+      <h1 id="site-name">IRCan Virtual Servers Administration</h1>
+    </div>
+  </div>
+  <div id="content">
+    <div id="module">
+<table>
+<caption>Virtual Machines</caption>
+   <tr><th>VE ID</th><th>State</th><th># Procs</th><th>Hostname</th><th>Host</th></tr>
+{% for ve in ves|dictsort:"veid" %}
+   <tr class="{% cycle 'row1' 'row2' %}">
+     <td class="veid">{{ ve.veid }}</td>
+     <td class="status">{{ ve.status }}</td>
+     <td class="processes">{{ ve.processes }}</td>
+     <td class="description">{{ ve.description }}</td>
+     <td class="host">{{ ve.hostname }}</td>
+     <td><A onclick="MochiKit.Style.setOpacity('container','0.2'); MochiKit.Style.showElement('loading');" HREF="reboot/{{ ve.veid }}/{{ ve.hostid }}">reboot</A></td>
+     <td><A onclick="MochiKit.Style.setOpacity('container','0.2'); MochiKit.Style.showElement('loading');" HREF="stop/{{ ve.veid }}/{{ ve.hostid }}">stop</A></td>
+     <td><A onclick="MochiKit.Style.setOpacity('container','0.2'); MochiKit.Style.showElement('loading');" HREF="start/{{ ve.veid }}/{{ ve.hostid }}">start</A></td>
+   </tr>
+{% endfor %}
+</table>
+    </div>
+  </div>
+</div>
+</body>
+</html>
